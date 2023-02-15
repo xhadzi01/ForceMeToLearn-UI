@@ -1,0 +1,15 @@
+{{ define "template-body" -}}
+    <div class="container">
+    <b>Language name: {{ .LanguageName }}</b><br>
+    <b>Total score: {{ .TotalScoreNominator }}/{{ .TotalScoreDenominator }} ({{ .TotalScoreRatio }})</b><br>
+    <b>Current score: {{ .CurrentScoreNominator }}/{{ .CurrentScoreDenominator }} ({{ .CurrentScoreRatio }}</b><br>
+
+    <h4>Do you want to play a game?</h4>
+
+    <div class="container">
+        {{ range $key, $value := .Games }}
+        <a  class="btn btn-primary btn-lg" href="{{- $value -}}" onclick="button">{{- $key -}}</a>
+        {{end}}
+    </div>
+
+{{- end }}

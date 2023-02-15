@@ -1,0 +1,17 @@
+{{ define "template-body" -}}
+    <div class="container">
+    <b>Language name: {{ .LanguageName }}</b><br>
+    <b>Total score: {{ .TotalScoreNominator }}/{{ .TotalScoreDenominator }} ({{ .TotalScoreRatio }})</b><br>
+    <b>Current score: {{ .CurrentScoreNominator }}/{{ .CurrentScoreDenominator }} ({{ .CurrentScoreRatio }}</b><br>
+
+    <h4>Which of the following word is correct translation of the word:</h4>
+    <h4>{{ .Word_to_translate }}</h4>
+    <br>
+    <br>
+    <div class="container">
+        {{ range .Possible_translations }}
+        <a  class="btn btn-primary btn-lg" href="./quiz-question?{{- .Hash -}}" onclick="button">{{- .Word -}}</a>
+        {{end}}
+    </div>
+
+{{- end }}
